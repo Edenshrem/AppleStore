@@ -4,42 +4,6 @@ function fetchPage(whatPage) {
         .then((data) => (document.getElementById("body").innerHTML = data));
 }
 
-// //Mac products
-// function changegrey() {
-//     document.getElementById("macPicture").src = "images/apple grey.webp";
-// }
-// function changepink() {
-//     document.getElementById("macPicture").src = "images/imac pink.webp";
-// }
-// function changepurple() {
-//     document.getElementById("macPicture").src = "images/imac purple.webp";
-// }
-// function changeorange() {
-//     document.getElementById("macPicture").src = "images/ipad orange.jpeg";
-// }
-
-// //iphone products
-// function changegreen() {
-//     document.getElementById("iphonePic").src = "images/iphonegreen1.jpg";
-// }
-// function changered() {
-//     document.getElementById("iphonePic").src = "images/iphone red1.jpg";
-// }
-// function changewhite() {
-//     document.getElementById("iphonePic").src = "images/iphone white.jpg";
-// }
-// function changeblack() {
-//     document.getElementById("iphonePic").src = "images/iphoneblack.webp";
-// }
-
-// //watch products
-// function changeappleb() {
-//     document.getElementById("apWatch").src = "images/watch_black.jpg";
-// }
-// function changeapplew() {
-//     document.getElementById("apWatch").src = "images/watch_white.jpg";
-// }
-
 
 function up(max) {
     document.getElementById("myNumber").value = parseInt(document.getElementById("myNumber").value) + 1;
@@ -162,9 +126,26 @@ function openForm() {
     document.getElementById("myForm").style.display = "block";
 }
 
+function openFormAddNewIphone() {
+    document.getElementById("myFormProduct").style.display = "block";
+}
+
+function openFormAddNewImac() {
+    document.getElementById("myFormNewImac").style.display = "block";
+}
+
 function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
+
+function closeFormAddNewIphone() {
+    document.getElementById("myFormProduct").style.display = "none";
+}
+
+function closeFormAddNewImac() {
+    document.getElementById("myFormNewImac").style.display = "none";
+}
+
 
 function showImac() {
     fetch("/getimac")

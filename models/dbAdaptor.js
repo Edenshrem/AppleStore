@@ -13,7 +13,7 @@ async function saveClient(details){  // save new customers
   exports.saveClient = saveClient;
 
 
-  async function saveorder(details){  //save transfer money
+  async function saveorder(details){  //save new order
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var col = client.db("appleStore").collection("Orders");
@@ -24,7 +24,7 @@ async function saveClient(details){  // save new customers
 
   exports.saveorder=saveorder;
 
-  async function getproduct(){  
+  async function getproduct(){  // show iphone collection
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     const db = client.db("appleStore");
@@ -36,7 +36,7 @@ async function saveClient(details){  // save new customers
 
   exports.getproduct = getproduct;
 
-  async function getmac(){  
+  async function getmac(){  //show imac collection
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     const db = client.db("appleStore");
@@ -48,7 +48,7 @@ async function saveClient(details){  // save new customers
 
   exports.getmac = getmac;
 
-  async function getwatch(){  
+  async function getwatch(){  //show watch collection
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     const db = client.db("appleStore");
@@ -57,5 +57,26 @@ async function saveClient(details){  // save new customers
     return res;
   }
   
-
   exports.getwatch = getwatch;
+
+  async function SaveNewIphone(details){  // save new iPhone to mongo
+    var client = new MongoClient(url, {useUnifiedTopology: true});
+    await client.connect();
+    var col = client.db("appleStore").collection("Products");
+    var result = await col.insertOne(details);
+    client.close();
+    return result;
+  }
+  exports.SaveNewIphone = SaveNewIphone;
+
+  async function SaveNewImac(details){  // save new iPhone to mongo
+    var client = new MongoClient(url, {useUnifiedTopology: true});
+    await client.connect();
+    var col = client.db("appleStore").collection("imac");
+    var result = await col.insertOne(details);
+    client.close();
+    return result;
+  }
+  exports.SaveNewImac = SaveNewImac;
+  
+  
