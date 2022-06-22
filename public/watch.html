@@ -1,0 +1,61 @@
+
+<body>
+	<div id="body">
+		<div class="content">
+			<div>
+				<div>
+					<h1>iWatch</h1>
+					<div> <a href="#" ><img src="images/Apple_Watch_official_logo.svg.png" width="300" height="100" alt=""></a> </div>
+					<ul>
+						<li>
+							<h2><a href="#" ><img src="images/watch_white.jpg"
+									id="apWatch"	width="300" height="200" alt=""></a></h2>
+							<p>
+								Choose color:
+							</p>
+							<span class="price">$50</span>
+						</li>
+						<li>
+							<button class="button button4" onclick="changeapplew()"></button>
+							<button class="button button5" onclick="changeappleb()"></button>
+						</li>
+						<li>
+							<div class="form-group">
+								<label>Quantity: </label>
+								<div class="input-group">
+									<div class="input-group-btn">
+										<button id="down" class="btn btn-default" onclick=" down('0')"><span class="glyphicon glyphicon-minus"></span> - </button>
+									</div>
+									<input type="text" id="myNumber" class="form-control input-number" value="1" />
+									<div class="input-group-btn">
+										<button id="up" class="btn btn-default" onclick="up('10')"><span class="glyphicon glyphicon-plus"></span>  + </button>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<button id="payButton">
+								add to cart
+							</button>
+						</li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+		<div class="sidebar">
+			<h1>Menu</h1>
+			<ul class="navigation">
+				<li class="first">
+					<a href="#" onclick="fetchPage('iphone.html'),showIphone()">iPhone</a>
+				</li>
+				<li>
+					<a href="#" onclick="fetchPage('mac.html'),showImac()">iMac</a>
+				</li>
+				<li>
+					<a class="active" href="#" onclick="fetchPage('watch1.html'),showIwatch()">iWatch</a>
+				</li>
+			</ul>
+			
+	</div>
+</body>
