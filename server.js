@@ -15,7 +15,7 @@ app.get('/addCustomers', (req, res) => {
     password: req.query.password
   }
   async function mysave(details) {
-    await mydb.saveClient(details).then((result) => res.redirect('index.html'));
+    await mydb.saveClient(details).then((result) => res.redirect('http://localhost:3000/?#'));
   }
   mysave(newClient);
 
@@ -26,11 +26,12 @@ app.get('/addorder', (req, res) => {
   {
     name: req.query.name,
     address: req.query.address,
-    city: req.query.city
+    city: req.query.city,
+    status:"open"
 
   }
   async function myorder(details) {
-    await mydb.saveorder(details).then((result) => res.send(result));
+    await mydb.saveorder(details).then((result) => res.redirect('http://localhost:3000/?#'));
   }
   myorder(neworder);
 

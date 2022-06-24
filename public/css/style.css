@@ -14,7 +14,7 @@ img {
 @font-face {
 	font-family :'NunitoRegular';
 	src :url('../fonts/nunito-regular-webfont.eot');
-	src :url('../fonts/nunito-regular-webfont.eot?#iefix') format('embedded-opentype'),
+	src :url('../fonts/nunito-regular-webfont.eot#iefix') format('embedded-opentype'),
 		url('../fonts/nunito-regular-webfont.woff') format('woff'),
 		url('../fonts/nunito-regular-webfont.ttf') format('truetype'),
 		url('../fonts/nunito-regular-webfont.svg#NunitoRegular') format('svg');
@@ -24,7 +24,7 @@ img {
 @font-face {
 	font-family :'Lobster1.4Regular';
 	src :url('../fonts/lobster-webfont.eot');
-	src :url('../fonts/lobster-webfont.eot?#iefix') format('embedded-opentype'),
+	src :url('../fonts/lobster-webfont.eot#iefix') format('embedded-opentype'),
 		url('../fonts/lobster-webfont.woff') format('woff'),
 		url('../fonts/lobster-webfont.ttf') format('truetype'),
 		url('../fonts/lobster-webfont.svg#Lobster1.4Regular') format('svg');
@@ -34,7 +34,7 @@ img {
 @font-face {
 	font-family :'LimelightRegular';
 	src :url('../fonts/limelight-webfont.eot');
-	src :url('../fonts/limelight-webfont.eot?#iefix') format('embedded-opentype'),
+	src :url('../fonts/limelight-webfont.eot#iefix') format('embedded-opentype'),
 		url('../fonts/limelight-webfont.woff') format('woff'),
 		url('../fonts/limelight-webfont.ttf') format('truetype'),
 		url('../fonts/limelight-webfont.svg#LimelightRegular') format('svg');
