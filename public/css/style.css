@@ -73,10 +73,11 @@ img {
 	left :0px;
 	top :160px;
 	overflow :hidden;
-	width :620px;
+
 }
 #header div ul.navigation li {
 	float :left;
+
 }
 #header div ul.navigation li:first-child a {
 	padding-left :0;
@@ -917,10 +918,11 @@ img {
 		  color: quantity-btn-color;
 	  }
   
-#cart {
+.navigation #cart {
 	cursor: pointer;   
 	font-size:24px;
 	color:#94c4c7;
+	margin-left: 200px;
 
 }
 
@@ -1078,6 +1080,7 @@ img {
 	font-family: sans-serif;
 	min-width: 400px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
   }
   
   .styled-table thead tr {
@@ -1265,6 +1268,7 @@ float: right;
 	  border: 1px solid #ccc;  
 	}
   }
-  .cart{
-	margin-top: auto;
+
+  input[list="quantity"]{
+	width: 82px;
   }

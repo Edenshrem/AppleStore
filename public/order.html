@@ -1,13 +1,13 @@
-<body>
+<body onload="getOrderDetails()">
 
 	<div id="body">
 		<div class="content">
 			<div>
 				<div>
 					<h1>Order Details:</h1>
-					<p>
-						order details.....
-					</p>
+					<form action="/deleteLastOrder">
+					<div id="myOrder"></div>
+					</form>
 					<h4>Order payment</h4>
 					<form action="/addorder">
 						<label for="name"> <span class="text"> Name:</span>
@@ -20,24 +20,26 @@
 							<input type="text" name="city" id="email">
 						</label><br>
 						<h4>Order payment</h4>
-						
-                        <label for="cardNumber"> <span class="text"> CARD NUMBER</span>
-                           
-                            <input type="text" name="cardNumber" id="cardNumber" placeholder="Valid Card Number"
-                            required autofocus /><br><br>
-                        </label>
-                        <label for="expiryDate"> <span>EXPIRY DATE</span>
-                            <input type="text" name="expityMonth" id="expityMonth" placeholder="MM" maxlength="2"  required />
-                            <input type="text" class="form-control" id="expityYear" placeholder="YY" maxlength="4" required />
-                        </label><br>
-                        <label  for="cvCode"> 
-                           <span > CV CODE</span>
-                       <input type="password" name="cvCode" id="cvCode" placeholder="CV" required />
-                       </label>
-                       <br><br><br>
-                        <button id="payButton">
-                         <a  onclick="saveorder()"> pay</a>
-                        </button>
+
+						<label for="cardNumber"> <span class="text"> CARD NUMBER</span>
+
+							<input type="text" name="cardNumber" id="cardNumber" placeholder="Valid Card Number"
+								required autofocus /><br><br>
+						</label>
+						<label for="expiryDate"> <span>EXPIRY DATE</span>
+							<input type="text" name="expityMonth" id="expityMonth" placeholder="MM" maxlength="2"
+								required />
+							<input type="text" class="form-control" id="expityYear" placeholder="YY" maxlength="4"
+								required />
+						</label><br>
+						<label for="cvCode">
+							<span> CV CODE</span>
+							<input type="password" name="cvCode" id="cvCode" placeholder="CV" required />
+						</label>
+						<br><br><br>
+						<button id="payButton">
+							<a onclick="saveorder(),deleteOrder()"> pay</a>
+						</button>
 					</form>
 				</div>
 			</div>
