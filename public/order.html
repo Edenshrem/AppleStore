@@ -5,11 +5,10 @@
 			<div>
 				<div>
 					<h1>Order Details:</h1>
-					<form action="/deleteLastOrder">
 					<div id="myOrder"></div>
-					</form>
-					<h4>Order payment</h4>
+
 					<form action="/addorder">
+						<h4>Order payment</h4>
 						<label for="name"> <span class="text"> Name:</span>
 							<input type="text" name="name" id="name">
 						</label>
@@ -38,7 +37,7 @@
 						</label>
 						<br><br><br>
 						<button id="payButton">
-							<a onclick="saveorder(),deleteOrder()"> pay</a>
+							<a onclick="saveorder(),fetchPage('thankYou.html')"> pay</a>
 						</button>
 					</form>
 				</div>

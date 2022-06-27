@@ -34,7 +34,7 @@ app.get('/addorder', (req, res) => {
 
   }
   async function myorder(details) {
-    await mydb.saveorder(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.saveorder(details).then((result) => res.redirect('http://localhost:3000/thankYou.html'));
   }
   myorder(neworder);
 

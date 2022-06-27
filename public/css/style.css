@@ -1272,3 +1272,17 @@ float: right;
   input[list="quantity"]{
 	width: 82px;
   }
+  td {
+	padding: 3px;
+   }
+   
+   td sup {
+	display: block;
+   }
+   
+   td span {
+	display: inline-block;
+	margin: 3px 0px;
+	text-align: center;
+	width:100%;
+   }

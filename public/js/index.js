@@ -60,7 +60,7 @@ function showIphone() {
       var myTables = `<table class="styled-table" >
             <tr>
             <th></th>
-            <th>Name</th>
+            <th >Name</th>
             <th>Color</th>
             <th>Image</th>
             <th>Price $</th>
@@ -294,9 +294,12 @@ function showorder() {
                         </td>
                         <td> ${element.price}</td>
                         <td> ${element.quantity}</td>
+                        
                     </tr>
                     </table>
                     `;
+         
+                    
       });
       document.getElementById("myOrder").innerHTML = myTables;
     });
