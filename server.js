@@ -12,7 +12,8 @@ app.get('/addCustomers', (req, res) => {
     name: req.query.name,
     ID: req.query.id,
     email: req.query.email,
-    password: req.query.password
+    password: req.query.password,
+    user:"customer"
   }
   async function mysave(details) {
     await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html'));
@@ -161,3 +162,60 @@ app.get("/deleteLastOrder", (req, res) => {
   }
   deleteLast();
 });
+
+
+// app.post('/login', (req, res) =>{
+//   if(this.item === undefined) {return}
+//   var user = {
+//   id: req.body.id,
+//   password : req.body.password
+//   }
+//   async function myuser(details) {
+//     await mydb.loginUser(details).then((result) =>{
+//     if (user.id==ID && user.password==password){
+//       if(user.user=="admin"){
+//         res.redirect('adminindex.html');
+//       }
+//       else{
+//         res.redirect('CustomerIndex.html');
+//       }
+//     }});
+//   }
+//   myuser(user);
+
+// });
+
+app.post('/login', (req, res) => {
+  var user =
+  {
+    id:id.value,
+    password:password.value
+  }
+  async function myverify(details) {
+    await mydb.loginVerify(details).then((result) =>{
+      if(user.id==ID && user.password == password){
+        if(user.user=="admin"){
+          res.redirect('adminindex.html');
+        }else{
+          res.redirect('CustomerIndex.html');
+        }
+      }else{
+        alert (" Id or Password incorrect")
+      }
+    }
+)}
+  myverify(user);
+
+});
+
+
+
+
+
+
+
+
+
+
+
+

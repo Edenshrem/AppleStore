@@ -234,5 +234,19 @@ function showorder() {
 }
 
 
-
+function getval(){
+  const val = document.querySelector('input').value;
+  if(val === "iphone"){
+    fetchPage('iphone.html'),showIphone();
+  }
+  if (val==="imac"){
+    fetchPage('mac.html'),showImac();
+  }
+  if (val==="iwatch") {
+    fetchPage('watch1.html'),showIwatch();
+  }
+  if (val != "iphone" && val != "imac" && val != "iwatch"){
+    alert('no '+ val+ ' product')
+  } 
+}
 

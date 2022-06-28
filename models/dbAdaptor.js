@@ -1,3 +1,5 @@
+const { request } = require('express');
+
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 const client = new MongoClient(url);
@@ -155,3 +157,38 @@ async function saveClient(details){  // save new customers
     return res;
   }
   exports.deleteOrder=deleteOrder;
+
+// async function loginUser(details){
+//   var client = new MongoClient(url, {useUnifiedTopology: true});
+//   await client.connect();
+//   var dbo = client.db("appleStore");
+//   var query = {ID: id, password: password}
+//   let collection= dbo.collection('Users');
+//   let output=await collection.findOne(query);
+//   client.close();
+//   return output;
+// }
+
+// exports.loginUser=loginUser;
+
+
+async function loginVerify(){  
+  var client = new MongoClient(url, {useUnifiedTopology: true});
+  await client.connect();
+  var dbo = client.db("appleStore");
+  var query = { id:ID, password:password };
+  let collection= dbo.collection('Users');
+  let res=await collection.findOne(query)
+  //  if(res.id==ID && res.password == password){
+  //   if(user.user=="admin"){
+  //     res.redirect('adminindex.html');
+  //   }else{
+  //     res.redirect('CustomerIndex.html');
+  //   }
+  // }else{
+  //   alert (" Id or Password incorrect")
+  // }
+  client.close();
+  return res;
+};
+exports.loginVerify = loginVerify;
