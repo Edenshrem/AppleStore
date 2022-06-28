@@ -92,7 +92,7 @@ async function saveClient(details){  // save new customers
   }
   exports.SaveNewIwatch = SaveNewIwatch;
   
-  async function GetOpenOrders(){  // save new iWatch to mongo
+  async function GetOpenOrders(){  
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var dbo = client.db("appleStore");

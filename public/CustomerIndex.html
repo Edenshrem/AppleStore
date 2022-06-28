@@ -9,21 +9,28 @@
 	<script src="js/index.js"></script>
 </head>
 
-<body onload="fetchPage('signup.html')">
+<body onload="fetchPage('homepage.html')">
 	<div id="header">
 		<div>
 			<a href="index.html"><img class="logo" src="images/Apple_Store.png" alt="" title=""></a>
 
 			<ul class="navigation">
-
 				<li>
-					<a href="#" onclick="fetchPage('signup.html')">SignUp</a>
+					<a href="#" onclick="fetchPage('homepage.html')">Home</a>
+				</li>
+				<li>
+					<a href="#" onclick="fetchPage('aboutus.html')">About</a>
+				</li>
+				<li>
+					<a href="#" onclick="fetchPage('iphone.html'),showIphone()">Products</a>
+				</li>
+                <li>
+					<a href="index.html"  >Log Out</a>
 				</li>
 
 				<li>
-					<a href="#" onclick="fetchPage('Login.html')">Login</a>
+					<i href="#" id="cart" class="fa fa-shopping-cart" onclick="fetchPage('order.html'),showorder()"></i>
 				</li>
-
 
 			</ul>
 
@@ -35,6 +42,16 @@
 	<div>
 
 	</div>
+	<div class="topnav">
+		<div class="search-container">
+			<form action="">
+				<button type="submit"><i class="fa fa-search"></i></button>
+				<input type="text" placeholder="Search..">
+
+			</form>
+
+
+		</div>
 	</div>
 	<div id="body">
 	</div>

@@ -279,12 +279,11 @@ img {
 #body .content div div form input[type="submit"]:hover {
 	background :transparent url("../images/button.png") no-repeat 0 -364px;
 }
-#body .content {
+#body .content  {
 	width :620px;
 	margin :30px 40px 30px 0;
 	height :auto;
 	padding-top :18px;
-	/* background :transparent url("../images/bg-content-top2.png"); */
 	border:5px solid #822619;
 	background: white;
 	background-position :center top;
@@ -292,6 +291,12 @@ img {
 	float :left;
 
 }
+
+#contentOpenOrders {
+	width: 900px !important;
+
+} 
+
 #body .content div {
 	width :620px;
 	/* background :transparent url("../images/bg-content-bottom2.png"); */
@@ -659,10 +664,10 @@ img {
 	color :#ebe9d7;
 }
 #footer {
-	height :130px;
+	height :170px;
 	width :100%;
 	padding :20px 0;
-	margin-top :20px;
+	margin-top :80px;
 	background :transparent url("../images/bg-footer.jpg");
 	background-repeat :repeat-x;
 	background-position :top;
@@ -1078,12 +1083,21 @@ img {
 	margin: 5px 0;
 	font-size: 0.9em;
 	font-family: sans-serif;
-	min-width: 400px;
+	width: 550px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
   }
+
+  .styled-table-openOrders{
+	border-collapse:unset;
+	margin: 5px 0;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	width: 900px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
   
-  .styled-table thead tr {
+  .styled-table thead tr .styled-table-openOrders {
 	background-color: #009879;
 	color: #ffffff;
 	text-align: left;
@@ -1094,7 +1108,7 @@ img {
 	padding: 12px 15px;
   } */
   
-  .styled-table tbody tr {
+  .styled-table tbody tr .styled-table-openOrders {
 	border-bottom: 1px solid #dddddd;
   }
 /*   
@@ -1102,11 +1116,11 @@ img {
 	background-color: #f3f3f3;
   } */
   
-  .styled-table tbody tr:last-of-type {
+  .styled-table tbody .styled-table-openOrders tr:last-of-type {
 	border-bottom: 2px solid #009879;
   }
   
-  .styled-table tbody tr.active-row {
+  .styled-table tbody .styled-table-openOrders tr.active-row {
 	font-weight: bold;
 	color: #009879;
   }
@@ -1273,7 +1287,10 @@ float: right;
 	width: 82px;
   }
   td {
+
 	padding: 3px;
+    width: 100px;
+    text-align: end;
    }
    
    td sup {
@@ -1286,3 +1303,4 @@ float: right;
 	text-align: center;
 	width:100%;
    }
+

@@ -15,7 +15,7 @@ app.get('/addCustomers', (req, res) => {
     password: req.query.password
   }
   async function mysave(details) {
-    await mydb.saveClient(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html'));
   }
   mysave(newClient);
 
@@ -30,8 +30,10 @@ app.get('/addorder', (req, res) => {
     address: req.query.address,
     city: req.query.city,
     order_date:split_date,
-    status:"open"
-
+    status:"open",
+    nameProduct:req.query.nameProduct,
+    priceProduct:req.query.priceProduct,
+    quantityProduct:req.query.quantityProduct
   }
   async function myorder(details) {
     await mydb.saveorder(details).then((result) => res.redirect('http://localhost:3000/thankYou.html'));
@@ -77,7 +79,7 @@ app.get('/NewProduct', (req, res) => { //save new iPhone
     img: req.query.img
   }
   async function addProduct(details) {
-    await mydb.SaveNewIphone(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.SaveNewIphone(details).then((result) => res.redirect('adminindex.html'));
   }
   addProduct(newProduct);
 
@@ -123,7 +125,7 @@ app.get("/getOpenOrders", (req, res) => {
 app.get("/getclose", (req, res) => {
 
   async function getclose() {
-    await mydb.closeOrders().then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.closeOrders().then((result) => res.redirect('adminindex.html'));
   }
   getclose();
 });
@@ -138,7 +140,7 @@ app.get('/addNewOrder', (req, res) => {
     img:req.query.img
   }
   async function mysave(details) {
-    await mydb.saveNewOrder(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.saveNewOrder(details).then((result) => res.redirect('CustomerIndex.html'));
   }
   mysave(order);
 
@@ -155,7 +157,7 @@ app.get("/getorder", (req, res) => {
 app.get("/deleteLastOrder", (req, res) => {
 
   async function deleteLast() {
-    await mydb.deleteOrder().then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.deleteOrder().then((result) => res.redirect('CustomerIndex.html'));
   }
   deleteLast();
 });

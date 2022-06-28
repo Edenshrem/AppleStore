@@ -4,20 +4,6 @@ function fetchPage(whatPage) {
     .then((data) => (document.getElementById("body").innerHTML = data));
 }
 
-function up(max) {
-  document.getElementById("myNumber").value =
-    parseInt(document.getElementById("myNumber").value) + 1;
-  if (document.getElementById("myNumber").value >= parseInt(max)) {
-    document.getElementById("myNumber").value = max;
-  }
-}
-function down(min) {
-  document.getElementById("myNumber").value =
-    parseInt(document.getElementById("myNumber").value) - 1;
-  if (document.getElementById("myNumber").value <= parseInt(min)) {
-    document.getElementById("myNumber").value = min;
-  }
-}
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -201,73 +187,14 @@ function openForm() {
   document.getElementById("myForm").style.display = "block";
 }
 
-function openFormAddNewIphone() {
-  document.getElementById("myFormProduct").style.display = "block";
-}
-
-function openFormAddNewImac() {
-  document.getElementById("myFormNewImac").style.display = "block";
-}
-
-function openFormAddNewIwatch() {
-  document.getElementById("myFormNewIwatch").style.display = "block";
-}
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-function closeFormAddNewIphone() {
-  document.getElementById("myFormProduct").style.display = "none";
-}
-
-function closeFormAddNewImac() {
-  document.getElementById("myFormNewImac").style.display = "none";
-}
-
-function closeFormAddNewIwatch() {
-  document.getElementById("myFormNewIwatch").style.display = "none";
-}
 
 
 
-function showOpenOrders() {
-  fetch("/getOpenOrders")
-    .then((response) => response.text())
-    .then((data) => {
-      var OrdersTypes = JSON.parse(data);
-      var myTables = `<table class="styled-table" >
-          <tr>
-          <th style="width:100px">Name </th>
-          <th style="width:100px">Address</th>
-          <th style="width:100px">City</th>
-          <th style="width:100px">Status</th>
-          <th style="width:130px">Order date</th>
-          <th style="width:100px">Order_close</th>
-
-      </tr>
-  </table>`;
-      OrdersTypes.forEach((element) => {
-        myTables += ` <form action ="/getclose">
-                  <table class="styled-table" >
- 
-                      <tr>
-                          <td  style="width:100px">${element.name}</td>
-                          <td style="width:130px">${element.address}</td>
-                          <td style="width:100px">${element.city}</td>
-                          <td style="width:100px">${element.status}</td>
-                          <td style="width:100px">${element.order_date}</td>
-                          <td> <button onclick="closeOrder()"> Close order</button></td>
-                          
-                      </tr>
-                   
-                      </table>
-                      </form>
-                  `;
-      });
-      document.getElementById("OpenOrders").innerHTML = myTables;
-    });
-}
 
 function showorder() {
   fetch("/getorder")
@@ -277,10 +204,10 @@ function showorder() {
       var myTables = `
       <table class="styled-table">
                 <tr>
-
-                <th>Image</th>
-                <th>Price $</th>
-                <th>Quantity</th>
+                <th> Name </th>
+                <th>&nbsp Image</th>
+                <th>&nbsp Price $</th>
+                <th>&nbsp Quantity</th>
               
             </tr>
         </table>
@@ -289,11 +216,12 @@ function showorder() {
         myTables += ` 
                 <table class="styled-table" >
                     <tr>
-                        <td >
+                    <td><input type="hidden" name="nameProduct" value="${element.name}">${element.name}</td>
+                        <td ><input type="hidden" name="img" value="${element.img}">
                         <img src="./images/${element.img}.jpg" alt="${element.img}" width="150" height="120">
                         </td>
-                        <td> ${element.price}</td>
-                        <td> ${element.quantity}</td>
+                        <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
+                        <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
                         
                     </tr>
                     </table>
@@ -304,3 +232,7 @@ function showorder() {
       document.getElementById("myOrder").innerHTML = myTables;
     });
 }
+
+
+
+
