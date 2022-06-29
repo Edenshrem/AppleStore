@@ -11,6 +11,10 @@ a {
 img {
 	border :0;
 }
+.fa-shopping-cart:before {
+	margin-left: 250px !important;
+}
+
 @font-face {
 	font-family :'NunitoRegular';
 	src :url('../fonts/nunito-regular-webfont.eot');
@@ -95,6 +99,10 @@ img {
 #header div ul.navigation li a:hover {
 	color :#ebe9d7;
 }
+.fa-shopping-cart:hover {
+	color :#ebe9d7 !important;
+}
+
 #header div ul.navigation li a.active {
 	color :#ebe9d7;
 }
@@ -104,6 +112,22 @@ img {
 	margin :0 auto;
 	overflow :hidden;
 }
+
+.firstimg{
+width: 500px;
+height: 300px;
+}
+
+.secondimg{
+	width: 500px;
+	height: 300px;
+}
+
+.thirdimg{
+	width: 400px;
+	height: 300px;
+}
+
 #body .featured {
 	width :960px;
 	overflow :hidden;
@@ -721,7 +745,7 @@ img {
 }
 #footer div ul li img.logo {
 	margin-top :20px;
-
+	margin-left: 15px;
 }
 #footer div ul li ul li {
 	float :left;
@@ -774,6 +798,7 @@ img {
 	font-family :'system-ui';
 	font-size :14px;
 	margin-top: 30px;
+	margin-left: 15px;
 }
 #footer div ul li ul.navigation {
 	list-style-type :none;
@@ -1091,7 +1116,6 @@ margin-left: -15px !important;
 	font-family: sans-serif;
 	width: 550px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-
   }
 
   .styled-table-openOrders{

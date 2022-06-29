@@ -1,7 +1,11 @@
+const {Router} = require('express')
 const express = require('express')
+
+const {Collection} = require('mongodb')
 const app = express()
 const port = 3000
-const mydb = require('./models/dbAdaptor')
+const mydb = require('./models/dbAdaptor.js')
+
 
 
 app.use(express.static('public'))
@@ -19,6 +23,22 @@ app.get('/addCustomers', (req, res) => {
     await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html'));
   }
   mysave(newClient);
+
+})
+
+app.get('/addmanager', (req, res) => {
+  var newManager =
+  {
+    ID: req.query.id,
+    email: req.query.email,
+    password: req.query.password,
+    user:"admin",
+    name: req.query.name
+  }
+  async function mysave(details) {
+    await mydb.saveManager(details).then((result) => res.redirect('adminindex.html'));
+  }
+  mysave(newManager);
 
 })
 
@@ -164,51 +184,37 @@ app.get("/deleteLastOrder", (req, res) => {
 });
 
 
-// app.post('/login', (req, res) =>{
-//   if(this.item === undefined) {return}
-//   var user = {
-//   id: req.body.id,
-//   password : req.body.password
-//   }
-//   async function myuser(details) {
-//     await mydb.loginUser(details).then((result) =>{
-//     if (user.id==ID && user.password==password){
-//       if(user.user=="admin"){
-//         res.redirect('adminindex.html');
-//       }
-//       else{
-//         res.redirect('CustomerIndex.html');
-//       }
-//     }});
-//   }
-//   myuser(user);
-
-// });
-
-app.post('/login', (req, res) => {
-  var user =
-  {
-    id:id.value,
-    password:password.value
+app.get("/login",async(req,res)=>{
+  var User =
+   {
+    ID:req.query.ID,
+    password :req.query.password,
   }
-  async function myverify(details) {
-    await mydb.loginVerify(details).then((result) =>{
-      if(user.id==ID && user.password == password){
-        if(user.user=="admin"){
-          res.redirect('adminindex.html');
-        }else{
-          res.redirect('CustomerIndex.html');
-        }
-      }else{
-        alert (" Id or Password incorrect")
+  async function myUser(details){
+    await mydb.loginUser(details).then((result)=>{
+      console.log("result:" , result);
+      if (result == null){
+        res.redirect('index.html')
       }
-    }
-)}
-  myverify(user);
+      else {
+        for (const [key, value] of Object.entries(result)) {
+        if (key == "user") {
+          console.log(value);
+          if (value.includes("admin")) {
+            res.redirect('adminindex.html');
+          }
+          else {
+            res.redirect('CustomerIndex.html?#');
+          }
+        }
+        }
+      }
+    })};
 
+
+  await myUser(User);
+ console.log(User)
 });
-
-
 
 
 

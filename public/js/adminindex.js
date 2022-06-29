@@ -212,7 +212,7 @@ function showOpenOrders() {
                     <table class="styled-table-openOrders" >
    
                         <tr>
-                            <td  style="width:100px">${element.name}</td>
+                            <td style="width:100px">${element.name}</td>
                             <td style="width:130px">${element.address}</td>
                             <td style="width:100px">${element.city}</td>
                             <td style="width:100px">${element.status}</td>

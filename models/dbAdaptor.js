@@ -1,8 +1,36 @@
 const { request } = require('express');
-
+// const {MongoClient, ObjectId} = require('mongodb');
+// const mongoose = require("mongoose")
+// mongoose.connect('mongodb://localhost:27017/appleStore');
+// const Schema=mongoose.Schema;
 var MongoClient = require('mongodb').MongoClient;
-var url = "mongodb://localhost:27017/";
+const url = "mongodb://localhost:27017/";
 const client = new MongoClient(url);
+
+
+// const UserSchema= new Schema ({
+//   ID: String,
+//   email :String,
+//   password :String,
+//   user :String,
+//   username:String
+// });
+
+// const UserModel= mongoose.model('User',UserSchema);
+
+async function loginUser(details){
+  var client = new MongoClient(url, {useUnifiedTopology: true});
+  await client.connect();
+  var query = { ID: String(details.ID), password: String (details.password) };
+  var col = client.db("appleStore").collection("Users");
+  var result = await col.findOne(query);
+  client.close();
+  console.log(result)
+  return result;
+}
+exports.loginUser=loginUser;
+
+
 
 async function saveClient(details){  // save new customers
     var client = new MongoClient(url, {useUnifiedTopology: true});
@@ -13,6 +41,16 @@ async function saveClient(details){  // save new customers
     return result;
   }
   exports.saveClient = saveClient;
+
+  async function saveManager(details){  // save new customers
+    var client = new MongoClient(url, {useUnifiedTopology: true});
+    await client.connect();
+    var col = client.db("appleStore").collection("Users");
+    var result = await col.insertOne(details);
+    client.close();
+    return result;
+  }
+  exports.saveManager = saveManager;
 
 
   async function saveorder(details){  //save new order
@@ -158,37 +196,3 @@ async function saveClient(details){  // save new customers
   }
   exports.deleteOrder=deleteOrder;
 
-// async function loginUser(details){
-//   var client = new MongoClient(url, {useUnifiedTopology: true});
-//   await client.connect();
-//   var dbo = client.db("appleStore");
-//   var query = {ID: id, password: password}
-//   let collection= dbo.collection('Users');
-//   let output=await collection.findOne(query);
-//   client.close();
-//   return output;
-// }
-
-// exports.loginUser=loginUser;
-
-
-async function loginVerify(){  
-  var client = new MongoClient(url, {useUnifiedTopology: true});
-  await client.connect();
-  var dbo = client.db("appleStore");
-  var query = { id:ID, password:password };
-  let collection= dbo.collection('Users');
-  let res=await collection.findOne(query)
-  //  if(res.id==ID && res.password == password){
-  //   if(user.user=="admin"){
-  //     res.redirect('adminindex.html');
-  //   }else{
-  //     res.redirect('CustomerIndex.html');
-  //   }
-  // }else{
-  //   alert (" Id or Password incorrect")
-  // }
-  client.close();
-  return res;
-};
-exports.loginVerify = loginVerify;

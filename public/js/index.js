@@ -161,7 +161,7 @@ function showImac() {
                       <option value ="4">
                       </datalist>
                       <form action="/addNewOrder">
-                <table class="styled-table" >
+                <table class="styled-table">
                
                     <tr>
                         <td><input type="hidden" name="name" value="${element.name}">${element.name}</td>
@@ -236,16 +236,16 @@ function showorder() {
 
 function getval(){
   const val = document.querySelector('input').value;
-  if(val === "iphone"){
+  if(val.toLowerCase() === "iphone"){
     fetchPage('iphone.html'),showIphone();
   }
-  if (val==="imac"){
+  if (val.toLowerCase() === "imac"){
     fetchPage('mac.html'),showImac();
   }
-  if (val==="iwatch") {
+  if (val.toLowerCase() === "iwatch") {
     fetchPage('watch1.html'),showIwatch();
   }
-  if (val != "iphone" && val != "imac" && val != "iwatch"){
+  if (val.toLowerCase() != "iphone" && val.toLowerCase() != "imac" && val.toLowerCase() != "iwatch"){
     alert('no '+ val+ ' product')
   } 
 }
