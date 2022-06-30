@@ -22,7 +22,8 @@ all the products shows in tables and gives the option to adding the product to t
 
 after that he goes to the cart and made a payment 
 
-![image](https://user-images.githubusercontent.com/105583226/176667922-e8316625-6200-44d0-99d0-8406b2ed1521.png)
+![image](https://user-images.githubusercontent.com/105583226/176668742-a7228e3c-e3de-4f04-9725-62e3cf6ab805.png)
+
 
 
 
