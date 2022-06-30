@@ -1,4 +1,4 @@
-function fetchPage(whatPage) {
+function fetchPage(whatPage) { //fetch page
   fetch(whatPage)
     .then((response) => response.text())
     .then((data) => (document.getElementById("body").innerHTML = data));
@@ -18,7 +18,7 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
-function showSlides(n) {
+function showSlides(n) { //show Slides
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
@@ -38,7 +38,7 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-function showIphone() {
+function showIphone() { //create table for iphone products
   fetch("/getiphone")
     .then((response) => response.text())
     .then((data) => {
@@ -87,7 +87,7 @@ function showIphone() {
     });
 }
 
-function showIwatch() {
+function showIwatch() { //create table for iWatch products
   fetch("/getwatch")
     .then((response) => response.text())
     .then((data) => {
@@ -135,7 +135,7 @@ function showIwatch() {
     });
 }
 
-function showImac() {
+function showImac() { //create table for iMac products
   fetch("/getimac")
     .then((response) => response.text())
     .then((data) => {
@@ -185,7 +185,7 @@ function showImac() {
 
 
 
-function showorder() {
+function showorder() { //show the cart
   fetch("/getorder")
     .then((response) => response.text())
     .then((data) => {
@@ -224,7 +224,7 @@ function showorder() {
 }
 
 
-function getval(){
+function getval(){ //search by category name
   const val = document.querySelector('input').value;
   if(val.toLowerCase() === "iphone"){
     fetchPage('iphone.html'),showIphone();

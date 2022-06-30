@@ -5,7 +5,7 @@ const client = new MongoClient(url);
 
 
 
-async function loginUser(details){
+async function loginUser(details){ // Verify login 
   var client = new MongoClient(url, {useUnifiedTopology: true});
   await client.connect();
   var query = { ID: String(details.ID), password: String (details.password) };
@@ -122,7 +122,7 @@ async function saveClient(details){  // save new customers
   }
   exports.SaveNewIwatch = SaveNewIwatch;
   
-  async function GetOpenOrders(){  
+  async function GetOpenOrders(){  // find open orders
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var dbo = client.db("appleStore");
@@ -134,7 +134,7 @@ async function saveClient(details){  // save new customers
   };
   exports.GetOpenOrders = GetOpenOrders;
 
-  async function getUsers(){  
+  async function getUsers(){  // get all the exist users
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var dbo = client.db("appleStore");
@@ -147,7 +147,7 @@ async function saveClient(details){  // save new customers
 
 
 
-  async function closeOrders(details){  
+  async function closeOrders(details){  // mark order as completed
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var date=new Date()
@@ -162,7 +162,7 @@ async function saveClient(details){  // save new customers
   };
   exports.closeOrders = closeOrders;
 
-  async function deleteUser(details){  
+  async function deleteUser(details){  //delete user
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var dbo = client.db("appleStore");
@@ -175,7 +175,7 @@ async function saveClient(details){  // save new customers
   exports.deleteUser = deleteUser;
 
 
-  async function saveNewOrder(details){  
+  async function saveNewOrder(details){   //add products to cart
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var col = client.db("appleStore").collection("orderDetails");
@@ -185,7 +185,7 @@ async function saveClient(details){  // save new customers
   }
   exports.saveNewOrder = saveNewOrder;
 
-  async function getOrderDetails(){  //show my order 
+  async function getOrderDetails(){  //show my cart 
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     const db = client.db("appleStore");
@@ -198,7 +198,7 @@ async function saveClient(details){  // save new customers
 
 
 
-  async function deleteOrder(){ 
+  async function deleteOrder(){  //delete cart after purchase 
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     const db = client.db("appleStore");

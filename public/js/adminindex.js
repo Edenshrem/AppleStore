@@ -1,4 +1,4 @@
-function fetchPage(whatPage) {
+function fetchPage(whatPage) { //fetch page
     fetch(whatPage)
       .then((response) => response.text())
       .then((data) => (document.getElementById("body").innerHTML = data));
@@ -17,7 +17,7 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
-function showSlides(n) {
+function showSlides(n) { //show Slides
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
@@ -37,7 +37,7 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-function showAdminIphone() {
+function showAdminIphone() { //create table to add new iphone
     fetch("/getiphone")
       .then((response) => response.text())
       .then((data) => {
@@ -75,7 +75,7 @@ function showAdminIphone() {
       });
   }
 
-  function showAdminIwatch() {
+  function showAdminIwatch() { //create table to add new iWatch
     fetch("/getwatch")
       .then((response) => response.text())
       .then((data) => {
@@ -116,7 +116,7 @@ function showAdminIphone() {
       });
   }
 
-  function showAdminImac() {
+  function showAdminImac() { //create table to add new iMac
     fetch("/getimac")
       .then((response) => response.text())
       .then((data) => {
@@ -155,36 +155,36 @@ function showAdminIphone() {
 
 
   
-  function openFormAddNewIphone() {
+  function openFormAddNewIphone() { //form to add new iphone
     document.getElementById("myFormProduct").style.display = "block";
   }
   
-  function openFormAddNewImac() {
+  function openFormAddNewImac() { //form to add new iMac
     document.getElementById("myFormNewImac").style.display = "block";
   }
   
-  function openFormAddNewIwatch() {
+  function openFormAddNewIwatch() { //form to add new iWatch
     document.getElementById("myFormNewIwatch").style.display = "block";
   }
   
 
   
-  function closeFormAddNewIphone() {
+  function closeFormAddNewIphone() { //close the form
     document.getElementById("myFormProduct").style.display = "none";
   }
   
-  function closeFormAddNewImac() {
+  function closeFormAddNewImac() { //close the form
     document.getElementById("myFormNewImac").style.display = "none";
   }
   
-  function closeFormAddNewIwatch() {
+  function closeFormAddNewIwatch() { //close the form
     document.getElementById("myFormNewIwatch").style.display = "none";
   }
 
   
 
 
-function showOpenOrders() {
+function showOpenOrders() { // create table to see all the open orders
     fetch("/getOpenOrders")
       .then((response) => response.text())
       .then((data) => {
@@ -224,7 +224,7 @@ function showOpenOrders() {
   }
 
 
-  function showUsers() {
+  function showUsers() { // create table to see all the exist users
     fetch("/getusers")
       .then((response) => response.text())
       .then((data) => {

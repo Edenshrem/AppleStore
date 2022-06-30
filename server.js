@@ -10,7 +10,7 @@ const mydb = require('./models/dbAdaptor.js')
 
 app.use(express.static('public'))
 
-app.get('/addCustomers', (req, res) => {
+app.get('/addCustomers', (req, res) => { //add new customer
   var newClient =
   {
     name: req.query.name,
@@ -26,7 +26,7 @@ app.get('/addCustomers', (req, res) => {
 
 })
 
-app.get('/addmanager', (req, res) => {
+app.get('/addmanager', (req, res) => { // add new user by admin
   var newManager =
   {
     ID: req.query.id,
@@ -43,7 +43,7 @@ app.get('/addmanager', (req, res) => {
 
 })
 
-app.get('/addorder', (req, res) => {
+app.get('/addorder', (req, res) => { // add order to mongo
    var date=new Date()
    var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
   var neworder =
@@ -64,7 +64,7 @@ app.get('/addorder', (req, res) => {
 
 })
 
-app.get("/getiphone", (req, res) => {
+app.get("/getiphone", (req, res) => { //show all the iphone products
   async function getData() {
     await mydb.getproduct().then((result) => res.send(result));
   }
@@ -74,14 +74,14 @@ app.get("/getiphone", (req, res) => {
 
 
 
-app.get("/getimac", (req, res) => {
+app.get("/getimac", (req, res) => { //show all the imac products
   async function myData() {
     await mydb.getmac().then((result) => res.send(result));
   }
   myData();
 });
 
-app.get("/getwatch", (req, res) => {
+app.get("/getwatch", (req, res) => { //show all the iwatch products
   async function watchData() {
     await mydb.getwatch().then((result) => res.send(result));
   }
@@ -122,7 +122,7 @@ app.get('/NewImac', (req, res) => { //save new iMac
 
 })
 
-app.get('/NewIwatch', (req, res) => { //save new iMac
+app.get('/NewIwatch', (req, res) => { //save new iWatch
   var newIwatch =
   {
     name: req.query.name,
@@ -137,7 +137,7 @@ app.get('/NewIwatch', (req, res) => { //save new iMac
 
 })
 
-app.get("/getOpenOrders", (req, res) => {
+app.get("/getOpenOrders", (req, res) => { //get open orders from mongo
   async function getOrders() {
     await mydb.GetOpenOrders().then((result) => res.send(result));
   }
@@ -145,7 +145,7 @@ app.get("/getOpenOrders", (req, res) => {
 });
 
 
-app.get("/getusers", (req, res) => {
+app.get("/getusers", (req, res) => { //get exist users from mongo
   async function users() {
     await mydb.getUsers().then((result) => res.send(result));
   }
@@ -153,7 +153,7 @@ app.get("/getusers", (req, res) => {
 });
 
 
-app.get("/getclose", (req, res) => {
+app.get("/getclose", (req, res) => { //mark order as completed by name
 
   var close = req.query.name
 
@@ -163,7 +163,7 @@ app.get("/getclose", (req, res) => {
   getclose(close);
 });
 
-app.get("/delete", (req, res) => {
+app.get("/delete", (req, res) => { //delete user
 
   var Delete = req.query.ID
 
@@ -173,7 +173,7 @@ app.get("/delete", (req, res) => {
   getclose(Delete);
 });
 
-app.get('/addNewOrder', (req, res) => {
+app.get('/addNewOrder', (req, res) => { // get order details to the cart
   var order =
   {
     name: req.query.name,
@@ -191,14 +191,14 @@ app.get('/addNewOrder', (req, res) => {
 })
 
 
-app.get("/getorder", (req, res) => {
+app.get("/getorder", (req, res) => { // get Order Details
   async function myData() {
     await mydb.getOrderDetails().then((result) => res.send(result));
   }
   myData();
 });
 
-app.get("/deleteLastOrder", (req, res) => {
+app.get("/deleteLastOrder", (req, res) => { // delete the cart
 
   async function deleteLast() {
     await mydb.deleteOrder().then((result) => res.redirect('CustomerIndex.html'));
@@ -207,7 +207,7 @@ app.get("/deleteLastOrder", (req, res) => {
 });
 
 
-app.get("/login",async(req,res)=>{
+app.get("/login",async(req,res)=>{ // Verify login by id
   var User =
    {
     ID:req.query.ID,
