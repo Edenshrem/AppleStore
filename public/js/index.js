@@ -185,10 +185,6 @@ function showImac() {
 
 
 
-
-
-
-
 function showorder() {
   fetch("/getorder")
     .then((response) => response.text())
@@ -201,6 +197,7 @@ function showorder() {
                 <th>&nbsp Image</th>
                 <th>&nbsp Price $</th>
                 <th>&nbsp Quantity</th>
+                <th>&nbsp Total</th>
               
             </tr>
         </table>
@@ -215,10 +212,10 @@ function showorder() {
                         </td>
                         <td><input type="hidden" name="priceProduct" value="${element.price}"> ${element.price}</td>
                         <td><input type="hidden" name="quantityProduct" value="${element.quantity}"> ${element.quantity}</td>
-                        
+                        <td><input type="hidden" name="total" value="${element.total}"> ${element.total}</td>
                     </tr>
                     </table>
-                    `;
+                    `; 
          
                     
       });
@@ -241,5 +238,6 @@ function getval(){
   if (val.toLowerCase() != "iphone" && val.toLowerCase() != "imac" && val.toLowerCase() != "iwatch"){
     alert('no '+ val+ ' product')
   } 
+
 }
 

@@ -234,6 +234,7 @@ function showOpenOrders() {
             <th style="width:100px">Name </th>
             <th style="width:100px">Id</th>
             <th style="width:100px">Email</th>
+            <th style="width:100px">User</th>
             <th style="width:100px">Delete</th>
         </tr>
     </table>`;
@@ -245,6 +246,7 @@ function showOpenOrders() {
                             <td style="width:100px"><input type="hidden" name="name" value="${element.name}">${element.name}</td>
                             <td style="width:130px"><input type="hidden" name="ID" value="${element.ID}">${element.ID}</td>
                             <td style="width:100px">${element.email}</td>
+                            <td style="width:100px">${element.user}</td>
                             <td> <button onclick="deleteUser()"> Delete User</button></td>
                             
                         </tr>

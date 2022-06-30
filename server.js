@@ -20,7 +20,7 @@ app.get('/addCustomers', (req, res) => {
     user:"customer"
   }
   async function mysave(details) {
-    await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html'));
+    await mydb.saveClient(details).then((result) => res.redirect('CustomerIndex.html?#'));
   }
   mysave(newClient);
 
@@ -115,7 +115,7 @@ app.get('/NewImac', (req, res) => { //save new iMac
     img: req.query.img
   }
   async function addImac(details) {
-    await mydb.SaveNewImac(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.SaveNewImac(details).then((result) => res.redirect('adminindex.html'));
   }
   addImac(newImac);
 
@@ -130,7 +130,7 @@ app.get('/NewIwatch', (req, res) => { //save new iMac
     img: req.query.img
   }
   async function addIwatch(details) {
-    await mydb.SaveNewIwatch(details).then((result) => res.redirect('http://localhost:3000/?#'));
+    await mydb.SaveNewIwatch(details).then((result) => res.redirect('adminindex.html'));
   }
   addIwatch(newIwatch);
 
@@ -179,7 +179,8 @@ app.get('/addNewOrder', (req, res) => {
     color:req.query.color,
     quantity: req.query.quantity,
     price: req.query.price,
-    img:req.query.img
+    img:req.query.img,
+    total: req.query.price*req.query.quantity, 
   }
   async function mysave(details) {
     await mydb.saveNewOrder(details).then((result) => res.redirect('CustomerIndex.html'));
