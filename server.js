@@ -32,8 +32,9 @@ app.get('/addmanager', (req, res) => {
     ID: req.query.id,
     email: req.query.email,
     password: req.query.password,
-    user:"admin",
+    user: req.query.user,
     name: req.query.name
+    
   }
   async function mysave(details) {
     await mydb.saveManager(details).then((result) => res.redirect('adminindex.html'));
