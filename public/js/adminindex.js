@@ -153,9 +153,7 @@ function showAdminIphone() {
       });
   }
 
-  function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
+
   
   function openFormAddNewIphone() {
     document.getElementById("myFormProduct").style.display = "block";
@@ -169,9 +167,7 @@ function showAdminIphone() {
     document.getElementById("myFormNewIwatch").style.display = "block";
   }
   
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+
   
   function closeFormAddNewIphone() {
     document.getElementById("myFormProduct").style.display = "none";
@@ -199,9 +195,6 @@ function showOpenOrders() {
             <th style="width:100px">Address</th>
             <th style="width:100px">City</th>
             <th style="width:100px">Status</th>
-            <th style="width:100px">name Product</th>
-            <th style="width:100px">price Product</th>
-            <th style="width:100px">quantity Product</th>
             <th style="width:130px">Order date</th>
             <th style="width:100px">Order_close</th>
   
@@ -212,13 +205,11 @@ function showOpenOrders() {
                     <table class="styled-table-openOrders" >
    
                         <tr>
-                            <td style="width:100px">${element.name}</td>
+                        <td><input type="hidden" name="_id" value="${element._id}></td>
+                            <td style="width:100px"><input type="hidden" name="name" value="${element.name}">${element.name}</td>
                             <td style="width:130px">${element.address}</td>
                             <td style="width:100px">${element.city}</td>
                             <td style="width:100px">${element.status}</td>
-                            <td style="width:100px">${element.nameProduct}</td>
-                            <td style="width:100px">${element.priceProduct}</td>
-                            <td style="width:100px">${element.quantityProduct}</td>
                             <td style="width:100px">${element.order_date}</td>
                             <td> <button onclick="closeOrder()"> Close order</button></td>
                             
@@ -231,3 +222,38 @@ function showOpenOrders() {
         document.getElementById("OpenOrders").innerHTML = myTables;
       });
   }
+
+
+  function showUsers() {
+    fetch("/getusers")
+      .then((response) => response.text())
+      .then((data) => {
+        var userTypes = JSON.parse(data);
+        var myTables = `<table class="styled-table-openOrders" >
+            <tr>
+            <th style="width:100px">Name </th>
+            <th style="width:100px">Id</th>
+            <th style="width:100px">Email</th>
+            <th style="width:100px">Delete</th>
+        </tr>
+    </table>`;
+       userTypes.forEach((element) => {
+          myTables += ` <form action="/delete">
+                    <table class="styled-table-openOrders" >
+   
+                        <tr>
+                            <td style="width:100px"><input type="hidden" name="name" value="${element.name}">${element.name}</td>
+                            <td style="width:130px"><input type="hidden" name="ID" value="${element.ID}">${element.ID}</td>
+                            <td style="width:100px">${element.email}</td>
+                            <td> <button onclick="deleteUser()"> Delete User</button></td>
+                            
+                        </tr>
+                     
+                        </table>
+                        </form>
+                    `;
+        });
+        document.getElementById("activeUsers").innerHTML = myTables;
+      });
+  }
+

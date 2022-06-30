@@ -143,12 +143,33 @@ app.get("/getOpenOrders", (req, res) => {
   getOrders();
 });
 
+
+app.get("/getusers", (req, res) => {
+  async function users() {
+    await mydb.getUsers().then((result) => res.send(result));
+  }
+ users();
+});
+
+
 app.get("/getclose", (req, res) => {
 
-  async function getclose() {
-    await mydb.closeOrders().then((result) => res.redirect('adminindex.html'));
+  var close = req.query.name
+
+  async function getclose(details) {
+    await mydb.closeOrders(details).then((result) => res.redirect('adminindex.html'));
   }
-  getclose();
+  getclose(close);
+});
+
+app.get("/delete", (req, res) => {
+
+  var Delete = req.query.ID
+
+  async function getclose(details) {
+    await mydb.deleteUser(details).then((result) => res.redirect('adminindex.html'));
+  }
+  getclose(Delete);
 });
 
 app.get('/addNewOrder', (req, res) => {

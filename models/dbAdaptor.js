@@ -1,22 +1,9 @@
 const { request } = require('express');
-// const {MongoClient, ObjectId} = require('mongodb');
-// const mongoose = require("mongoose")
-// mongoose.connect('mongodb://localhost:27017/appleStore');
-// const Schema=mongoose.Schema;
 var MongoClient = require('mongodb').MongoClient;
 const url = "mongodb://localhost:27017/";
 const client = new MongoClient(url);
 
 
-// const UserSchema= new Schema ({
-//   ID: String,
-//   email :String,
-//   password :String,
-//   user :String,
-//   username:String
-// });
-
-// const UserModel= mongoose.model('User',UserSchema);
 
 async function loginUser(details){
   var client = new MongoClient(url, {useUnifiedTopology: true});
@@ -41,6 +28,9 @@ async function saveClient(details){  // save new customers
     return result;
   }
   exports.saveClient = saveClient;
+
+
+
 
   async function saveManager(details){  // save new customers
     var client = new MongoClient(url, {useUnifiedTopology: true});
@@ -144,14 +134,26 @@ async function saveClient(details){  // save new customers
   };
   exports.GetOpenOrders = GetOpenOrders;
 
+  async function getUsers(){  
+    var client = new MongoClient(url, {useUnifiedTopology: true});
+    await client.connect();
+    var dbo = client.db("appleStore");
+    let collection= dbo.collection('Users');
+    let res=await collection.find({}).toArray() 
+    client.close();
+    return res;
+  };
+  exports.getUsers = getUsers;
 
-  async function closeOrders(){  
+
+
+  async function closeOrders(details){  
     var client = new MongoClient(url, {useUnifiedTopology: true});
     await client.connect();
     var date=new Date()
     var split_date=date.getFullYear()+'-' + (date.getMonth()+1) + '-'+date.getDate()
     var dbo = client.db("appleStore");
-    var myquery = { status: "open" };
+    var myquery = { name: details };
     var newvalues = { $set: { status: "Close",close_date:split_date } };
     let collection= dbo.collection('Orders');
     let res=await collection.updateOne(myquery,newvalues);
@@ -159,6 +161,18 @@ async function saveClient(details){  // save new customers
     return res;
   };
   exports.closeOrders = closeOrders;
+
+  async function deleteUser(details){  
+    var client = new MongoClient(url, {useUnifiedTopology: true});
+    await client.connect();
+    var dbo = client.db("appleStore");
+    var myquery = { ID: details };
+    let collection= dbo.collection('Users');
+    let res=await collection.deleteOne(myquery);
+    client.close();
+    return res;
+  };
+  exports.deleteUser = deleteUser;
 
 
   async function saveNewOrder(details){  
